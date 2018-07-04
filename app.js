@@ -1,12 +1,11 @@
 const express = require("express");
-
 const app = express();
+const hdbRouter = require('./hdb')
 
-const data = require("./utils/data.json");
-console.log(data);
 
 app.use(express.json());
 
-// TODO: Create CRUD endpoints for your data!
+app.use('/hdb', hdbRouter);
+
 
 module.exports = app;
