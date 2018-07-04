@@ -1,8 +1,8 @@
 const request = require('supertest')
-const app = require('./app')
+const { app, errMSG } = require('./app')
 
 test('smoke test', () => {
-    expect(1).toEqual(1) 
+    expect(1).toEqual(1)
 });
 
 test('should return an array with length greater than 0 ', async () => {
@@ -24,4 +24,9 @@ test('query yrstart=2000 should return flats with lease_commence_date of >= 2000
     expect(response.body.length).toBeGreaterThan(0);
     expect(response.body[0].flat_type).toContain("3");
     expect(Number(response.body[0].lease_commence_date)).toBeGreaterThanOrEqual(2000)
+});
+
+test('/hdb/6 should return a 404 error with error message', async () => {
+    const response = await request(app).get('/hdb/6');
+    expect(response.status).toEqual(404);
 });
