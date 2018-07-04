@@ -19,7 +19,7 @@ hdbRouter.get('/:flat_type', (req, res, next) => {
     }).filter((hdb) => {
         return yearStart ? hdb.lease_commence_date >= yearStart : true
     }).filter((hdb) => {
-        return yearStart ? hdb.flat_type[0] === req.params.flat_type : true
+        return hdb.flat_type[0] === req.params.flat_type
     })
 
     res.json(flatTypeFilter)
