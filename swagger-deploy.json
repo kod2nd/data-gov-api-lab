@@ -34,7 +34,7 @@
                         "name": "flat_type",
                         "in": "path",
                         "required": true,
-                        "description": "Retrieve list of hdbs filtered by flat type\n (e.g. enter flat_type = 3 to retrieve all 3 room flats)",
+                        "description": "Retrieve list of hdbs filtered by flat type (e.g. enter flat_type = 3 to retrieve all 3 room flats)",
                         "schema": {
                             "type": "number"
                         }
@@ -43,7 +43,7 @@
                         "name": "yrstart",
                         "in": "query",
                         "required": false,
-                        "description": "Filters HDBs with lease commence dates greater or equal to than yrstart. E.g. yrstart = 1980 returns a list of HDBs with lease commences dates later than or including 1980.",
+                        "description": "Filters HDBs with lease commence dates greater or equal to than yrstart.\n\nE.g. yrstart = 1980 returns a list of HDBs with lease commences dates later than or including 1980.",
                         "schema": {
                             "type": "number"
                         }
@@ -52,7 +52,7 @@
                         "name": "yrend",
                         "in": "query",
                         "required": false,
-                        "description": "Filters HDBs with lease commence dates greater or equal to than yrend. E.g. yrend = 2011 returns a list of HDBs with lease commences dates before or including 2011.",
+                        "description": "Filters HDBs with lease commence dates greater or equal to than yrend.\n\nE.g. yrend = 2011 returns a list of HDBs with lease commences dates before or including 2011.",
                         "schema": {
                             "type": "number"
                         }
