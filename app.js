@@ -6,7 +6,7 @@ const swaggerDocument = require('./swagger-deploy.json')
 
 const errMsg = "Sorry can't find that"
 
-app.get('/', () => {
+app.get('/', (req, res, next) => {
     res.json({
         help: "Refer to /api-help to get started!"
     })
