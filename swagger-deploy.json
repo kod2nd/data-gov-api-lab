@@ -14,7 +14,7 @@
             "get": {
                 "summary": "API documentation",
                 "tags": [
-                    "API Help Page "
+                    "API Help Page"
                 ],
                 "responses": {
                     "200": {
@@ -23,23 +23,14 @@
                 }
             }
         },
-        "/hdb/{flat_type}": {
+        "/hdb": {
             "get": {
-                "summary": "Info for a specific flat size",
+                "summary": "Shows a list of resale HDBs",
                 "tags": [
                     "HDB Resale lists"
                 ],
                 "parameters": [
                     {
-                        "name": "flat_type",
-                        "in": "path",
-                        "required": true,
-                        "description": "Retrieve list of hdbs filtered by flat type (e.g. enter flat_type = 3 to retrieve all 3 room flats)",
-                        "schema": {
-                            "type": "number"
-                        }
-                    },
-                      {
                         "name": "yrstart",
                         "in": "query",
                         "required": false,
@@ -48,11 +39,20 @@
                             "type": "number"
                         }
                     },
-                      {
+                    {
                         "name": "yrend",
                         "in": "query",
                         "required": false,
-                        "description": "Filters HDBs with lease commence dates greater or equal to than yrend.\n\nE.g. yrend = 2011 returns a list of HDBs with lease commences dates before or including 2011.",
+                        "description": "Filter HDBs with lease commence dates greater or equal to than yrend.\n\nE.g. yrend = 2011 returns a list of HDBs with lease commences dates before or including 2011.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "rooms",
+                        "in": "query",
+                        "required": false,
+                        "description": " Filter HDBs by flat type (e.g. enter rooms = 3 to retrieve all 3 room flats)",
                         "schema": {
                             "type": "number"
                         }
@@ -75,7 +75,8 @@
                                         "flat_model": "Improved",
                                         "lease_commence_date": "1986",
                                         "remaining_lease": "70",
-                                        "resale_price": "255000"
+                                        "resale_price": "255000",
+                                        "id": 1234
                                     }
                                 }
                             }
@@ -83,6 +84,30 @@
                     },
                     "404": {
                         "description": "Bad request"
+                    }
+                }
+            }
+        },
+        "/hdb/{id}": {
+            "get": {
+                "summary": "Shows a single HDB",
+                "tags": [
+                    "HDB Resale lists"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Filters HDB by id. Returns a single HDB object.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Request Valid!"
                     }
                 }
             }

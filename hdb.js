@@ -19,7 +19,7 @@ hdbRouter.get('/', (req, res, next) => {
     const yearStart = req.query.yrstart
     const yearEnd = req.query.yrend
     const town = req.query.town
-    const flatType = req.query.flat_type
+    const flatType = req.query.rooms
 
     const hdbFilters = dataWithId.filter((hdb) => {
         return yearEnd ? hdb.lease_commence_date <= yearEnd : true
