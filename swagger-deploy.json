@@ -34,7 +34,7 @@
                         "name": "flat_type",
                         "in": "path",
                         "required": true,
-                        "description": "Retrieve list of hdbs filtered by flat type (e.g. enter flat_type = 3 to retrieve all 3 room flats)",
+                        "description": "Retrieve list of hdbs filtered by flat type\n (e.g. enter flat_type = 3 to retrieve all 3 room flats)",
                         "schema": {
                             "type": "number"
                         }
