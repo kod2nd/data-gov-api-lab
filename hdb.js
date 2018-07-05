@@ -6,13 +6,13 @@ const dataWithId = data.map((element, index)=>{
 });
 
 // need to create a test for this   
-// hdbRouter.get('/:id', (req, res, next) => {
-//     const id = req.params.id
+hdbRouter.get('/:id', (req, res, next) => {
+    const id = req.params.id
 
-//     res.json(dataWithId.filter((hdb) => {
-//         return hdb.id === id
-//     }))
-// })
+    res.json(dataWithId.filter((hdb) => {
+        return hdb.id === id
+    }))
+})
 
 
 hdbRouter.get('/', (req, res, next) => {
