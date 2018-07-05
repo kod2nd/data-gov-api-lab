@@ -13,5 +13,4 @@ app.use((req, res, next) => {
     res.status(404).json(errMsg);
 })
 
-
 module.exports = { app, errMsg }
