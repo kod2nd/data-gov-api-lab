@@ -6,6 +6,12 @@ const swaggerDocument = require('./swagger-deploy.json')
 
 const errMsg = "Sorry can't find that"
 
+app.get('/', () => {
+    res.json({
+        help: "Refer to /api-help to get started!"
+    })
+})
+
 app.use('/api-help', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 app.use(express.json());
 
