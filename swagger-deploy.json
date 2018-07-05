@@ -1,0 +1,91 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "HDB Resale Prices"
+    },
+    "servers": [
+        {
+            "url": "https://kod2nd-hdb-database.herokuapp.com/"
+        }
+    ],
+    "paths": {
+        "/": {
+            "get": {
+                "summary": "API documentation",
+                "tags": [
+                    "Landing Page, / "
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of instructions"
+                    }
+                }
+            }
+        },
+        "/hdb/{flat_type}": {
+            "get": {
+                "summary": "Info for a specific flat size",
+                "tags": [
+                    "HDB Resale lists"
+                ],
+                "parameters": [
+                    {
+                        "name": "flat_type",
+                        "in": "path",
+                        "required": true,
+                        "description": "Retrieve list of hdbs filtered by flat type (e.g. enter flat_type = 3 to retrieve all 3 room flats)",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                      {
+                        "name": "yrstart",
+                        "in": "query",
+                        "required": false,
+                        "description": "Filters HDBs with lease commence dates greater or equal to than yrstart. E.g. yrstart = 1980 returns a list of HDBs with lease commences dates later than or including 1980.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                      {
+                        "name": "yrend",
+                        "in": "query",
+                        "required": false,
+                        "description": "Filters HDBs with lease commence dates greater or equal to than yrend. E.g. yrend = 2011 returns a list of HDBs with lease commences dates before or including 2011.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Expected response to a valid request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "example": {
+                                        "month": "2015-01",
+                                        "town": "ANG MO KIO",
+                                        "flat_type": "3 ROOM",
+                                        "block": "174",
+                                        "street_name": "ANG MO KIO AVE 4",
+                                        "storey_range": "07 TO 09",
+                                        "floor_area_sqm": "60",
+                                        "flat_model": "Improved",
+                                        "lease_commence_date": "1986",
+                                        "remaining_lease": "70",
+                                        "resale_price": "255000"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        }
+    }
+}

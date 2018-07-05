@@ -3,7 +3,7 @@ const app = express();
 const hdbRouter = require('./hdb')
 const landingPageRouter = require('./landingPage')
 const swaggerUi = require('swagger-ui-express')
-const swaggerDocument = require('./swagger-sample.json')
+const swaggerDocument = require('./swagger-deploy.json')
 
 const errMsg = "Sorry can't find that"
 
