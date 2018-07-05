@@ -10,11 +10,11 @@
         }
     ],
     "paths": {
-        "/": {
+        "/api-help": {
             "get": {
                 "summary": "API documentation",
                 "tags": [
-                    "Landing Page, / "
+                    "API Help Page "
                 ],
                 "responses": {
                     "200": {
