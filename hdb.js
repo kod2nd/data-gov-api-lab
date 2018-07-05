@@ -20,8 +20,8 @@ hdbRouter.get('/:flat_type', (req, res, next) => {
     })
     
     if(["1", "2", "3", "4", "5"].indexOf(flatType) > -1) {
-        return res.json(flatTypeFilter)
-    } else return next()
+         res.json(flatTypeFilter)
+    } else next()
 })
 
 module.exports = hdbRouter
